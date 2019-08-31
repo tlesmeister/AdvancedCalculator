@@ -1,0 +1,55 @@
+HTML Code
+
+ <div class="row holders">
+                <article class="col-md-4">
+                    <h2></h2>
+                    <!-- Textbox for user input -->
+                    <p>
+                        Please enter two different numbers and select one of the following arithmetic operations. This calculation is similar to the Regular Calculator except its only using one function.
+                    </p>
+                    <div>
+                        <input type="number" class="form-control" id="tbFirstNumAd" placeholder="Enter First Number" />
+                        <input type="number" class="form-control" id="tbSecondNumAd" placeholder="Enter Second Number" />
+                    </div>
+                    <div>
+                        <input type="button" class="btn btn-warning" value="Multiply" onclick="advancedCalc('multiply')" />
+                        <input type="button" class="btn btn-warning" value="Divide" onclick="advancedCalc('divide')" />
+                        <input type="button" class="btn btn-warning" value="Subtract" onclick="advancedCalc('minus')" />
+                        <input type="button" class="btn btn-warning" value="Add" onclick="advancedCalc('addition')" />
+                    </div>
+                    <!-- Output Element -->
+                    <span id="advancedCalcOutput"></span>
+                </article>
+ </div>
+
+
+
+JavaScript Code
+
+function advancedCalc(operation) {
+    let userInputOne = document.getElementById('tbFirstNumAd').value;
+    let userInputTwo = document.getElementById('tbSecondNumAd').value;
+    let calcValue = 0;
+
+    switch (operation) {
+        case "multiply":
+            calcValue = userInputOne * userInputTwo;
+            break;
+
+        case "divide":
+            calcValue = userInputOne / userInputTwo;
+            break;
+        case "minus":
+            calcValue = userInputOne - userInputTwo;
+            break;
+
+        case "addition":
+            calcValue = Number(userInputOne) + Number(userInputTwo);
+            break;
+
+        default: calcValue = "Invalid";
+            break;
+    }
+    let output = document.getElementById('advancedCalcOutput');
+    output.textContent = calcValue;
+}
